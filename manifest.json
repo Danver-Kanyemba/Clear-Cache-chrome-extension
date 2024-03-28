@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Cache Cleaner",
+  "description": "Automatically clears cache every Wednesday and Friday at 8 PM.",
+  "version": "1.0",
+  "permissions": ["alarms", "browsingData"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": "/images/logo.svg",
+    "default_title": "Cache Cleaner"
+  }
+}
