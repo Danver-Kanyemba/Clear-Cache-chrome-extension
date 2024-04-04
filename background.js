@@ -17,16 +17,16 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   }
   
   function getNextScheduledTime() {
-    // Calculate the next occurrence of 8:30 PM on Wednesday or Friday
+    // Calculate the next occurrence of 8:36 PM on Wednesday or Friday
     let now = new Date();
     let next = new Date(now);
-    next.setHours(14, 30, 0, 0); // Set to 8:30 PM
+    next.setHours(14, 36, 0, 0); // Set to 8:36 PM
     let day = now.getDay();
     let addDays = 0;
     let hour = now.getHours();
     let minute = now.getMinutes();
     
-    if (day === 4 && (hour < 14 || (hour === 14 && minute < 30))) {
+    if (day === 4 && (hour < 14 || (hour === 14 && minute < 36))) {
       // It's today
       addDays = 0;
     } else if (day < 3) {
@@ -45,8 +45,8 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   
     next.setDate(now.getDate() + addDays);
   
-    // If it's currently past 8:30 PM, schedule for the next occurrence
-    if (addDays === 0 && (now.getHours() > 14 || (now.getHours() === 14 && now.getMinutes() >= 30))) {
+    // If it's currently past 8:36 PM, schedule for the next occurrence
+    if (addDays === 0 && (now.getHours() > 14 || (now.getHours() === 14 && now.getMinutes() >= 36))) {
       next.setDate(now.getDate() + (day === 4 ? 4 : 2)); // Next Wednesday if Friday, otherwise next Friday
     }
   
